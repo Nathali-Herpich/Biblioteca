@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Amanda Acervo</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <img class="logo" src="LOGO.png" alt="Amanda Acervo" />
+        <ul class="menu">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#adicionar">Adicionar Livro</a></li>
+            <li><a href="#lista">Lista de Livros</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header id="home" class="hero">
+    <div class="container hero-content">
+        <h1>Amanda Acervo</h1>
+        <p>Um acervo encantado para amantes da leitura e magia.</p>
+        <img src="biblioteca de bruxa.png" alt="Biblioteca de bruxa" />
+    </div>
+</header>
+
+<section id="adicionar" class="add-book container">
+    <h2>Adicionar Livro</h2>
+    <form id="book-form">
+        <input type="text" id="title" placeholder="Título" required />
+        
+        <input type="text" id="author" placeholder="Autor" required />
+        
+        <input type="hidden" id="id" value="" />
+
+        <button type="button" onclick="buscarLivroOnline()">Buscar Capa Online</button>
+
+        <div id="preview" style="margin-top: 10px;">
+            <img id="previewImg" src="" style="max-height: 200px; display: none; border-radius: 8px;" />
+        </div>
+
+        <input type="text" id="cover" placeholder="URL da capa (Preenchido pela busca ou manual)" />
+
+        <select id="status" required>
+            <option value="">Selecione o status</option>
+            <option value="lido">Já li</option>
+            <option value="quero-ler">Quero ler</option>
+            <option value="comprar">Lista de compras</option>
+        </select>
+
+        <button type="submit">Adicionar</button>
+    </form>
+</section>
+
+<section id="lista" class="book-list container">
+    <h2>Lista de Livros</h2>
+    <input type="text" id="search" placeholder="Buscar livro por título ou autor..." />
+    <ul id="books"></ul>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

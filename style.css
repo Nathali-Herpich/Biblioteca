@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+
+:root {
+  --fundo-pedra: rgb(50, 38, 28);
+  --madeira-escura: rgb(80, 60, 40);
+  --vela-luz: rgb(255, 205, 120);
+  --preto-bruxa: rgb(30, 25, 20);
+  --cor-osso: rgb(190, 175, 150);
+  --verde-magia: rgb(95, 120, 80);
+  --ambar-pocao: rgb(160, 100, 40);
+  --transition-speed: 0.3s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--fundo-pedra);
+  color: var(--cor-osso);
+  font-family: "IM Fell English SC", "Georgia", serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding-top: 70px; /* espaço para navbar fixa */
+}
+
+/* NAVBAR FIXA */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--madeira-escura);
+  box-shadow: 0 2px 5px var(--preto-bruxa);
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.navbar .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  height: 90px;
+  border-radius: 6px;
+  box-shadow: 0 0 8px var(--ambar-pocao);
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu li a {
+  color: var(--vela-luz);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color var(--transition-speed);
+}
+
+.menu li a:hover,
+.menu li a:focus {
+  background-color: var(--ambar-pocao);
+  color: var(--preto-bruxa);
+}
+
+/* HERO */
+.hero {
+  background-color: var(--preto-bruxa);
+  padding: 60px 20px 40px;
+  text-align: center;
+  color: var(--vela-luz);
+  box-shadow: 0 0 30px var(--ambar-pocao);
+  border-radius: 15px;
+  max-width: 1100px;
+  margin: 0 auto 50px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 8px var(--madeira-escura);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-style: italic;
+  color: var(--cor-osso);
+  text-shadow: 1px 1px 3px var(--preto-bruxa);
+}
+
+.hero img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px var(--ambar-pocao);
+}
+
+/* CONTAINER GERAL */
+.container {
+  max-width: 1100px;
+  margin: 0 auto 50px;
+  padding: 0 20px;
+}
+
+/* ADICIONAR LIVRO */
+.add-book h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--vela-luz);
+  text-shadow: 1px 1px 5px var(--preto-bruxa);
+}
+
+.add-book form {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.add-book input[type="text"],
+.add-book select {
+  flex: 1 1 250px;
+  padding: 15px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--ambar-pocao);
+  background-color: var(--fundo-pedra);
+  color: var(--cor-osso);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.add-book input[type="text"]:focus,
+.add-book select:focus {
+  border-color: var(--vela-luz);
+  box-shadow: 0 0 10px var(--vela-luz);
+  outline: none;
+}
+
+.add-book button {
+  background-color: var(--ambar-pocao);
+  color: var(--preto-bruxa);
+  border: none;
+  padding: 15px 35px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 5px 10px var(--preto-bruxa);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.add-book button:hover {
+  background-color: var(--verde-magia);
+  color: var(--vela-luz);
+}
+
+/* LISTA DE LIVROS */
+.book-list h2 {
+  font-size: 2.5rem;
+  margin-bottom: 25px;
+  color: var(--vela-luz);
+  text-shadow: 1px 1px 5px var(--preto-bruxa);
+}
+
+.book-list ul#books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+}
+
+.book-list ul#books li {
+  background: url('https://www.transparenttextures.com/patterns/paper-fibers.png') repeat var(--preto-bruxa);
+  border: 2px solid;
+  border-image: linear-gradient(to right, var(--ambar-pocao), var(--vela-luz)) 1;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px var(--madeira-escura);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.book-list ul#books li:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px var(--vela-luz), 0 12px 30px var(--ambar-pocao);
+}
+
+.book-list ul#books li img {
+  max-width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 10px var(--ambar-pocao);
+}
+
+.book-list ul#books li strong {
+  font-size: 1.2rem;
+  color: var(--vela-luz);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.book-list ul#books li span {
+  font-size: 1rem;
+  color: var(--cor-osso);
+  text-align: center;
+}
+
+/* PREVIEW DA CAPA */
+#previewImg {
+  border: 3px solid var(--vela-luz);
+  box-shadow: 0 0 12px var(--ambar-pocao);
+  border-radius: 10px;
+  max-height: 200px;
+  display: none;
+}
+
+/* CAMPO DE BUSCA */
+#search {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--fundo-pedra);
+  color: var(--cor-osso);
+  font-size: 16px;
+  outline: none;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.4);
+  transition: 0.3s;
+}
+
+#search::placeholder {
+  color: var(--cor-osso);
+  opacity: 0.7;
+}
+
+#search:focus {
+  border: 2px solid var(--vela-luz);
+  background-color: var(--preto-bruxa);
+}
+
+/* ANIMAÇÃO DE ENTRADA */
+.livro-item.animar {
+  animation: aparecer 0.5s ease-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* MENSAGEM DE CONFIRMAÇÃO */
+.mensagem-flutuante {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--ambar-pocao);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 205, 120, 0.6);
+  font-weight: bold;
+  z-index: 9999;
+  animation: fade 3s ease-in-out forwards;
+  font-family: "Libertinus Mono", monospace;
+}
+
+@keyframes fade {
+  0% { opacity: 0; transform: translateY(-10px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* STATUS DO LIVRO */
+.book-status {
+  margin-top: 8px;
+  padding: 4px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--vela-luz);
+  text-align: center;
+}
+
+.book-status.lido {
+  background-color: #3a804d;
+}
+
+.book-status.quero-ler {
+  background-color: #bf8f30;
+}
+
+.book-status.comprar {
+  background-color: #b03b3b;
+}
+
+
+/* Botão Excluir */
+.excluir-btn {
+  margin-top: 10px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.excluir-btn:hover {
+  background-color: darkred;
+}
+
+/* Status visual */
+.book-status {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.book-status.lido {
+  background-color: #2e8b57;
+  color: white;
+}
+
+.book-status.quero-ler {
+  background-color: #f4c430;
+  color: #000;
+}
+
+.book-status.comprar {
+  background-color: #d9534f;
+  color: white;
+}
